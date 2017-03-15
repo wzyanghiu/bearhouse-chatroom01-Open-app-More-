@@ -18,7 +18,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 require('./routes')(app);
-server.listen(80);
+//server.listen(80);
+
+var serverPort = process.env.PORT || 5000;
+server.listen(serverPort);
+
+console.log('[Rocka Node Server] Running at http://127.0.0.1:${serverPort}');
 
 var nickNames = {};
 var users = [];
